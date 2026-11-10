@@ -23,6 +23,7 @@ const vidinad = [
     },
 ]
 
+// iuwhgfiuhwreuif
 app.get('/vidinad', (req, res) => {
     res.send(vidinad)
 })
@@ -75,3 +76,4 @@ app.delete('/vidinad/:id',(req, res) =>{
 app.listen(8080, () => {
     console.log(`API töötab aadressil: http://localhost:8080`)
 })
+
