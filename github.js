@@ -24,6 +24,28 @@ let fetchProfile = async () => {
 
 function renderPage() {
     document.getElementById("gitdata").innerHTML = `
-    
+    <div>
+        <h1>Githubi profiilinuhkija</h1>
+        <p>Kelle järel nuhid? (kasutajanimi):</p>
+        <input />
+        <div class="content">
+            <h1 id="name">Nimi: ${profileName}</h1>
+            <p id="id">ID: ${profileId}</p>
+            <p id="repos">Avalikke reposid: ${profileRepos}</p>
+            <p id="profileurl">Link: ${profileLink}
+                <a href="${profileName}" target="_blank">/users/</a>
+            </p>
+        </div>
+    </div>    
     `
 }
+
+fetchProfile();
+renderPage();
+
+function updateValue(e) {
+    profileName = e.target.value
+    fetchProfile();
+}
+const input = document.querySelector("input")
+input.addEventListener("change", updateValue)
