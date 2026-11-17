@@ -1,0 +1,22 @@
+on:
+  push:
+jobs:
+  mail_on_push:
+    runs-on: ubuntu-latest
+    steps: 
+     - name: Send email to this address
+       uses: dawidd6/action-send-mail@v3
+       with:
+        server_address: smtp.gmail.com
+        server_port: 587
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: "ALERT, WE HAVE DETECTED HOT SINGLE COMMITS IN YOUR AREA ${{github.repository}}"
+        body: |
+          helo teem,
+          A hot singel komit hes been ditekted in yor area. Ples review chenges, and merg into main brensh.
+
+          Hot singel komit kommiting: ${{github.event.pusher.name}}
+          Chaenges:
+        to: "jyri.vaitmaa@techno.ee"
+        from: "Github actions for ${{github.repository}}"
